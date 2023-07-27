@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Age Difference Calculator</title>
+    <style>
+        /* Some basic styling for the page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        label {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- user -1 -->
+    <label for="dob1">Date of Birth (User 1)</label>
+    <input type="date" id="dob1">
+
+    <!-- user -2 -->
+    <label for="dob2">Date of Birth (User 2)</label>
+    <input type="date" id="dob2">
+
+    <button id="btn" onclick="ageDiff()">Submit</button>
+
+    <!-- for display -->
+    <h1 id="h"></h1>
+
+    <script>
+        function ageDiff() {
+            const input1 = document.getElementById('dob1').value;
+            const input2 = document.getElementById('dob2').value;
+            const date1 = new Date(input1);
+            const date2 = new Date(input2)
+            const timeDiff = Math.abs(date2 - date1);
+            const ageDiffDate = new Date(timeDiff);
+            const ageDifferenceYears = ageDiffDate.getFullYear() - 1970;
+            const resultElement = document.getElementById('h');
+            resultElement.innerHTML = `Age Difference: <br>
+                                      Years: ${ageDifferenceYears} <br>`
+                                   
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Player A: <span id="counterA">0</span></h1>
+<button onclick="increment('A')">Increment A</button>
+<h1>Player B: <span id="counterB">0</span></h1>
+<button onclick="increment('B')">Increment B</button>
+
+    <script>
+       // Use 'let' instead of 'const' since the counters need to be updated
+let countA = 0;
+let countB = 0;
+
+function increment(player) {
+    if (player === 'A') {
+        countA++;
+        countB--;
+    } else {
+        countA--;
+        countB++;
+    }
+
+    document.getElementById('counterA').innerText = countA;
+    document.getElementById('counterB').innerText = countB;
+
+    if (countA >= 10) {
+        display('A');
+    } else if (countB >= 10) {
+        display('B');
+    }
+}
+
+function display(player) {
+    alert(`Player ${player} wins`);
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Styles for the bubbles */
+        .bubble {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 50%;
+            color: rgb(9, 230, 57);
+            text-align: center;
+            line-height: 100px;
+            font-size: 20px;
+            
+            
+        }
+        .bubble:hover{
+            transform: scale(200%);
+            background-color: green;
+        }
+       
+    </style>
+</head>
+<body>
+    <script>
+        function create() {
+            const body = document.getElementsByTagName('body')[0];
+            const newbb = document.createElement('div');
+            newbb.textContent = 'pop me';
+            newbb.className = 'bubble';
+
+            // Generate random numbers between 0 and the window width for the left position
+            const randomLeft = Math.random() * window.innerWidth;
+
+            // Generate random numbers between 0 and the window height for the top position
+            const randomTop = Math.random() * window.innerHeight;
+
+            newbb.style.left = `${randomLeft}px`; // Use 'px' units for the left position
+            newbb.style.top = `${randomTop}px`; // Use 'px' units for the top position
+
+            body.appendChild(newbb);
+
+            newbb.addEventListener('click',() =>{
+                newbb.style.backgroundColor = 'red'
+                newbb.textContent = 'pop out'
+                newbb.style.fontSize = '30px'
+            
+                setTimeout(function(){
+                  
+                    newbb.remove()
+                    newbb.textContent = 'popout'
+                },1000)
+            })
+        }
+
+        for (let i = 0; i < 100; i++) {
+            create();
+        }
+        // Get the inner width of the browser window
+const width = window.innerWidth;
+const w= window.innerHeight;
+
+console.log(width,w); // Output: The width of the visible area inside the browser window in pixels
+
+    </script>
+</body>
+</html>

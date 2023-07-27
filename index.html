@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Player A: <span id="counterA">0</span></h1>
+<button onclick="incrementCounter('A')">Increment A</button>
+<h1>Player B: <span id="counterB">0</span></h1>
+<button onclick="incrementCounter('B')">Increment B</button>
+
+    <!-- clactot promble ______________________________________________----------------------------------------->
+    <!-- <input type="text" name="" id="input1">
+    <input type="text" name="" id="input2">
+    <button id="+" onclick="calculator('+')">+</button>
+    <button id="-" onclick="calculator('-')">-</button>
+    <button id="*" onclick="calculator('*')">*</button>
+    <button id="/" onclick="calculator('/')">/</button>
+    <input type="text" name="" id="result"> -->
+    <!-- //________________________________________________________________________________ -->
+
+    <script>
+        //argument and then executing it after ‘x’ seconds.
+    //   function main(callback,x){
+    //     setTimeout(function(){
+    //         callback()
+    //     },x*1000)
+    //   }
+    //   function say(){
+    //     console.log('hello')
+    //   }
+    //   main(say,2)
+//_________________________________________________________________________________________
+
+
+    // Write a JavaScript function in the script tag which takes an object as parameter and returns a copy of the object where the keys have become the values and the values the keys.
+    // function inverted(obj){
+    //     const newObj = {}
+    //       for(let key in obj){
+    //         if(obj.hasOwnProperty(key)){
+    //             newObj[obj[key]] = key;
+    //         }
+    //     }
+    //     return newObj
+    // }
+
+    // const obj1 = {
+    //     a:1,
+    //     b:2
+    // }
+    // console.log(inverted(obj1))
+    // inverted(obj1)
+// _________________________________________________________________________________________
+   
+// calulator
+//  function calculator(op){
+//     const input1 = Number(document.getElementById('input1').value)
+//     const input2 = Number(document.getElementById('input2').value)
+//     const res = document.getElementById('result');
+
+//     switch(op){
+//         case '+' :
+//             res.value = input1 + input2
+//         break;
+
+//         default : "invalid"
+//     }
+
+//  }
+// ________________________________________________________________________________________________
+
+
+// Time obj related question
+
+// function time(x, y) {
+   
+//     let count = 0;
+//     const t = setInterval(() => {
+//     const currentTime = new Date();
+//     let hours = currentTime.getHours();
+//     const minutes = currentTime.getMinutes();
+//     const seconds = currentTime.getSeconds();
+
+//     let AmPm = 'AM';
+//     if (hours >= 12) {
+//       AmPm = 'PM';
+//       hours = hours - 12;
+
+//     }
+
+//     console.log(`hours:${hours} min:${minutes} sec:${seconds} ${AmPm}`);
+//     count++;
+
+//     if (count === y) {
+//       clearInterval(t);
+//     }
+//   }, x * 1000);
+
+// }
+// time(1, 6);
+
+// __________________________________________________________________________
+//  Write a function arrayToList that takes an array like [1,2,3] as input and: 1: Write a function arrayToList that takes an array like [1,2,3] as input and
+
+// let arr = [1, 2, 3, 4, 5];
+
+// function todo(arr2) {
+//   let list = null;
+//   for (let i = arr.length - 1; i >= 0; i--) {
+//     list = { value: arr[i], rest: list };
+//   }
+//   return list;
+// }
+
+// console.log(todo(arr));
+// -------------------------------------
+// icreament game
+// Initial counters for Player A and Player B
+let counterA = 0;
+let counterB = 0;
+
+// Function to increment the counter of the given user
+// and decrement the counter of the other user
+function incrementCounter(user) {
+  if (user === 'A') {
+    counterA++;
+    counterB--;
+  } else if (user === 'B') {
+    counterB++;
+    counterA--;
+  }
+
+  // Update the counter display
+  document.getElementById('counterA').innerText = counterA;
+  document.getElementById('counterB').innerText = counterB;
+
+  // Check for the winner
+  if (counterA >= 10) {
+    displayWinner('A');
+  } else if (counterB >= 10) {
+    displayWinner('B');
+  }
+}
+
+// Function to display the winner
+function displayWinner(winner) {
+  alert(`Player ${winner} wins!`);
+}
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
